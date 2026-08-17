@@ -19,17 +19,15 @@
   <div id="results"></div>
 
 <script>
-let dictionary = [];
-
-fetch('./lamnso.json')
-  .then(response => response.json())
-  .then(data => {
-    dictionary = data;
-    showResults("");
-  })
-  .catch(error => {
-    document.getElementById("results").innerHTML = "Error loading dictionary. Check lamnso.json";
-  });
+// ALL YOUR DICTIONARY DATA IS HERE - NO JSON FILE NEEDED
+const dictionary = [
+  { "lamnso": "Mendzav", "english": "Water" },
+  { "lamnso": "Fí", "english": "House" },
+  { "lamnso": "Tár", "english": "Come" },
+  { "lamnso": "Wí", "english": "You" },
+  { "lamnso": "Yè", "english": "Go" }
+  // ADD ALL YOUR 1000+ WORDS HERE
+];
 
 document.getElementById("search").addEventListener("input", (e) => {
   showResults(e.target.value.toLowerCase());
@@ -52,6 +50,9 @@ function showResults(query) {
   if(results.length === 0) html = "<p>No results found</p>";
   document.getElementById("results").innerHTML = html;
 }
+
+// Show all words on load
+showResults("");
 </script>
 </body>
 </html>
